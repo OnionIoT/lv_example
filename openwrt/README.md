@@ -50,3 +50,14 @@ make package/lv_example/compile V=99
 ```
 
 On successful compilation, it will produce a file `bin/output` in the `lv_example` directory.
+
+## To go back to using git repo
+
+To move back to using the git repo to build the package:
+
+```
+rm -rf dl/lv_example*
+make package/lv_example/clean
+```
+
+Any future compilations will download the source from the git repo and use that for compilation.
