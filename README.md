@@ -7,9 +7,14 @@ Out of the box it supports:
     * The Linux Framebuffer - will draw to the Omega2 Dash display
     * The XPT7603 touch input device on the Omega2 Dash
 * A small demo (provided by `main.c`)
+* A script to cross compile the code for the Omega2 Dash (using Docker and the OpenWRT SDK)
 * A makefile and instructions to build it as an OpenWRT package (see `openwrt` directory)
 
 ## Using Docker to Compile for the Omega2 Dash
+
+**A quick and easy method for cross-compiling this code for the Omega2 Dash**
+
+It's possible to use the OpenWRT SDK in a Docker container to compile this code for the Omega2 Dash. The first time you do this might take a few minutes since image files will need to be downloaded. Afterwards, the compilation will be pretty quick.
 
 Make sure you have [Docker installed](https://docs.docker.com/get-docker/), then run:
 
@@ -17,7 +22,7 @@ Make sure you have [Docker installed](https://docs.docker.com/get-docker/), then
 sh compile.sh
 ```
 
-This will use the OpenWRT SDK in a Docker to compile the code in your local copy of this repo.
+This will use the OpenWRT SDK in a Docker container to compile the code in your local copy of this repo.
 
 The output, a binary file and an ipk package will be in the `bin` directory.
 

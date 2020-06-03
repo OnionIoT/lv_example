@@ -1,6 +1,12 @@
 # How to compile lv_example using OpenWRT build system
 
-> Instructions on compiling lv_example package for Omega2 platform from source code in github repo specified by `PKG_SOURCE_URL` variable in the `Makefile` in this directory.
+What follows are instructions on compiling lv_example package for Omega2 platform from source code in github repo specified by `PKG_SOURCE_URL` variable in the `Makefile` in this directory.
+
+This might take some time and be work intensive!
+
+**A quicker option to get this code compiled for the Omega2 Dash is to use the OpenWRT SDK with Docker. It's really simplified by a script we've made available. See more details [here](https://github.com/OnionIoT/lv_example#using-docker-to-compile-for-the-omega2-dash).**
+
+## The Instructions
 
 First add this makefile to the Onion feed in the build system:
 
