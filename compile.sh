@@ -11,11 +11,11 @@ else
 fi
 
 # build the image
-docker build -t lv_example .
+docker build -t cross_compile .
 
 # run it with bin directory mounted as volume
 docker run \
   --name build \
   --rm \
   -v `pwd`/bin:/root/source/bin \
-  lv_example
+  cross_compile

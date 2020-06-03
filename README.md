@@ -79,3 +79,16 @@ Then, find the [line where `TARGET_LDFLAGS`, the linker flags to be used compila
 ```
 TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib -lugpio
 ```
+
+### Changing the Package Name
+
+If you build your own software package based on the template, it would make sense to change the package name.
+
+To change the package name, find and replace the text `lv_example` with your given package name in the following files:
+
+* `Dockerfile`
+* `openwrt/Makefile`
+
+Note that changing the [install definition in the OpenWRT makefile](./openwrt/Makefile#L50) will change where the binary will be installed on your Omega2 Dash device!
+
+> Learn more about OpenWRT package makefiles here: https://openwrt.org/docs/guide-developer/packages
