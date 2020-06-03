@@ -42,3 +42,35 @@ lv_example
 ```
 
 > All of the package details are defined in the [OpenWRT Makefile](./openwrt/Makefile), including the package name, installation directory, and more
+
+
+## Modifying the Template
+
+Feel free to use this as a starting point for your own UI project on the Omega2 Dash. That's exactly what this repo is intended for!
+
+### Using Libraries
+
+If you end up using additional libraries in your project, you'll need to make a few modifications in the [OpenWRT Makefile](./openwrt/Makefile) in order to successfully compile the code using the `compile.sh` script.
+
+All changes to be made in the `openwrt/Makefile` file:
+
+1. Add the package name of the library to the dependencies of this package
+2. Add the library to the linking flags used for compilation.
+
+#### An Example
+
+Let's say your UI project is based on the code in this repo and uses `libugpio` to toggle the GPIOs when buttons are pressed on the touchscreen.
+
+In `openwrt/Makefile`, find the [line that defines the DEPENDS for the package](./openwrt/Makefile#29). Add a `+` and `libugpio`, the name of the package:
+
+```
+DEPENDS:=+libugpio
+```
+
+> If your updated code has more than one dependency, it would look like this `DEPENDS:=+libugpio +otherdependency`
+
+Then, find the [line where `TARGET_LDFLAGS`, the linker flags to be used compilation](./openwrt/Makefile#29). Add `-l` and the library name:
+
+```
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib -lugpio
+```

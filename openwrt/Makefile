@@ -26,6 +26,7 @@ define Package/lv_example
 	CATEGORY:=Onion
 	SUBMENU:=Utilities
 	TITLE:=A template for Omega2 Dash programs using the LittleV Graphics Library
+	DEPENDS:=
 endef
 
 define Package/lv_example/description
@@ -33,15 +34,15 @@ A template for Omega2 Dash programs using the LittleV Graphics Library
 endef
 
 
-# TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
-# TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
+TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
 
-# define Build/Compile
-# 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
-# 	CC="$(TARGET_CC)" \
-# 	CFLAGS="$(TARGET_CFLAGS)" \
-# 	LDFLAGS="$(TARGET_LDFLAGS)"
-# endef
+define Build/Compile
+	$(MAKE) -C $(PKG_BUILD_DIR)/ \
+	CC="$(TARGET_CC)" \
+	CFLAGS="$(TARGET_CFLAGS)" \
+	LDFLAGS="$(TARGET_LDFLAGS)"
+endef
 
 define Package/lv_example/install
 	$(INSTALL_DIR) $(1)/usr/bin
