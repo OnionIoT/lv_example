@@ -61,7 +61,7 @@ All changes to be made in the `openwrt/Makefile` file:
 
 Let's say your UI project is based on the code in this repo and uses `libugpio` to toggle the GPIOs when buttons are pressed on the touchscreen.
 
-In `openwrt/Makefile`, find the [line that defines the DEPENDS for the package](./openwrt/Makefile#29). Add a `+` and `libugpio`, the name of the package:
+In `openwrt/Makefile`, find the [line that defines the DEPENDS for the package](./openwrt/Makefile#L29). Add a `+` and `libugpio`, the name of the package:
 
 ```
 DEPENDS:=+libugpio
@@ -69,7 +69,7 @@ DEPENDS:=+libugpio
 
 > If your updated code has more than one dependency, it would look like this `DEPENDS:=+libugpio +otherdependency`
 
-Then, find the [line where `TARGET_LDFLAGS`, the linker flags to be used compilation](./openwrt/Makefile#29). Add `-l` and the library name:
+Then, find the [line where `TARGET_LDFLAGS`, the linker flags to be used compilation](./openwrt/Makefile#L38). Add `-l` and the library name:
 
 ```
 TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib -lugpio
